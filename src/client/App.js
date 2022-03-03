@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import '../client/scss/style.scss';
 import Header from "./layout/Header";
+import {Lover} from "./pages";
 
 function App() {
   return (
@@ -26,10 +27,6 @@ function App() {
 
 function Home() {
     return <h2>Home</h2>;
-}
-
-function Lover() {
-    return <h2>戀愛對象簡介</h2>;
 }
 
 function Recipe() {
