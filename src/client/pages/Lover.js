@@ -1,7 +1,7 @@
 
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {map} from 'lodash';
+import {map, filter, find} from 'lodash';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -66,20 +66,25 @@ const LoverInfo = ({data}) => {
 }
 
 const SelectedListItem = ({country}) => {
-    const [selectedId, setSelectedId] = React.useState(Lovers[country.id][0].id);
+    const countryLovers = filter(Lovers, lover => lover.countryId === country.id);
+    const [selectedId, setSelectedId] = React.useState(countryLovers[0].id);
+
+    const lover = find(countryLovers, lover => lover.id === selectedId);
 
     const handleListItemClick = (event, id) => setSelectedId(id);
 
+
     useEffect(() => {
-        setSelectedId(Lovers[country.id][0].id);
+        setSelectedId(countryLovers[0].id);
     }, [country])
+
 
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 <Grid item xs={4}>
                     <List component="nav" aria-label="mailbox folder">
-                        {map(Lovers[country.id], lover => <ListItemButton {...{
+                        {map(countryLovers, lover => <ListItemButton {...{
                             key: lover.id,
                             selected: selectedId === lover.id,
                             onClick: (event) => handleListItemClick(event, lover.id),
@@ -89,7 +94,7 @@ const SelectedListItem = ({country}) => {
                     </List>
                 </Grid>
                 <Grid item xs={8}>
-                    <LoverInfo {...{data: Lovers[country.id][selectedId-1]}} />
+                    <LoverInfo {...{data: lover}} />
                 </Grid>
             </Grid>
         </Box>
