@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import '../client/scss/style.scss';
 import Header from "./layout/Header";
-import {Lover} from "./pages";
+import {Lover, Recipe} from "./pages";
 
 function App() {
   return (
@@ -27,10 +27,6 @@ function App() {
 
 function Home() {
     return <h2>Home</h2>;
-}
-
-function Recipe() {
-    return <h2>食譜簡介</h2>;
 }
 
 function Member() {

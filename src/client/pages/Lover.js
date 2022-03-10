@@ -1,6 +1,5 @@
 
 import React, {useEffect} from 'react';
-import PropTypes from 'prop-types';
 import {map, filter, find} from 'lodash';
 
 import Tabs from '@mui/material/Tabs';
@@ -8,31 +7,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import {COUNTRIES, Lovers, SEASON} from '../constants';
 import {Grid, List, ListItemButton, ListItemText} from "@mui/material";
-
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box sx={{ p: 3 }}>
-                    {children}
-                </Box>
-            )}
-        </div>
-    );
-}
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-};
+import {TabPanel} from "../common";
 
 const LoverInfo = ({data}) => {
     const {name, birthday, init} = data;

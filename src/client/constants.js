@@ -102,5 +102,46 @@ module.exports = Object.freeze({
             birthday: [2, 12],
             init: 4,
         },
-    ]
+    ],
+    RECIPE_TYPE: [
+        {
+            id: 1,
+            name: {zh: '沙拉類', jp: 'サラダ'},
+        },
+        {
+            id: 2,
+            name: {zh: '湯類', jp: 'スープ'},
+        },
+        {
+            id: 3,
+            name: {zh: '拼盤類', jp: 'オードブル'},
+        },
+        {
+            id: 4,
+            name: {zh: '主食類', jp: 'メイン'},
+        },
+        {
+            id: 5,
+            name: {zh: '甜點類', jp: 'デザート'},
+        },
+        {
+            id: 6,
+            name: {zh: '其他類', jp: 'その他'},
+        },
+    ],
+    RECIPES: [
+        {
+            id: 1,
+            type: 1,
+            name: {zh: '蕪菁沙拉', jp: 'かぶのサラダ'},
+            tool: [],
+            ingredient: [1],
+        },
+    ],
+    GOODS: [
+        {
+            id: 1,
+            name: {zh: '蕪菁', jp: 'かぶ'},
+        }
+    ],
 });
