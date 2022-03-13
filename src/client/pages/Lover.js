@@ -5,7 +5,7 @@ import {map, filter, find} from 'lodash';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import {COUNTRIES, Lovers, SEASON} from '../constants';
+import {COUNTRIES, LOVERS, SEASON} from '../constants';
 import {Grid, List, ListItemButton, ListItemText} from "@mui/material";
 import {TabPanel} from "../common";
 
@@ -41,7 +41,7 @@ const LoverInfo = ({data}) => {
 }
 
 const SelectedListItem = ({country}) => {
-    const countryLovers = filter(Lovers, lover => lover.countryId === country.id);
+    const countryLovers = filter(LOVERS, lover => lover.countryId === country.id);
     const [selectedId, setSelectedId] = React.useState(countryLovers[0].id);
 
     const lover = find(countryLovers, lover => lover.id === selectedId);
